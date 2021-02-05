@@ -17,6 +17,7 @@ let monsterPower = choosenMaxLife
 let personPower = choosenMaxLife
 let count = 2
 let son = true
+let isLogged;
 
 
 adjustHealthBars(choosenMaxLife)
@@ -105,9 +106,7 @@ function gameOver() {
     }
 }
 
-function printLog() {
-    console.log(logs)
-}
+
 function attackAction(type) {
     let power;
     let eventAttack;
@@ -164,6 +163,30 @@ function healActions() {
         alert('Imkonyatiz qolmadi')
     }
 }
+
+
+
+
+
+function printLog() {
+    let j = 0 
+    for (let i of logs) {
+        console.log(j + '##########')
+        if (!isLogged  || isLogged < i) {
+            for (let key in i) {
+            console.log(`${key}=>${i[key]}`)
+            }
+            isLogged = i
+        }
+        
+        j++
+        break   
+    }
+ 
+}
+
+   
+
 
 attackBtn.addEventListener('click',simpleAttackAction)
 strongAttackBtn.addEventListener('click',strongAttackAction)
